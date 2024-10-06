@@ -1,5 +1,5 @@
-import "@mantine/core/styles.css";
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+// import "@mantine/core/styles.css";
+// import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import "@/app/ui/global.css";
 import { inter } from "@/app/ui/fonts";
@@ -7,11 +7,10 @@ import { inter } from "@/app/ui/fonts";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <ColorSchemeScript />
-      </head>
+      <head>{/* <ColorSchemeScript defaultColorScheme="light" /> */}</head>
       <body className={`${inter.className} antialiased`}>
-        <MantineProvider defaultColorScheme="auto">{children}</MantineProvider>
+        {/* <MantineProvider>{children}</MantineProvider> */}
+        {children}
       </body>
     </html>
   );
