@@ -42,6 +42,11 @@ export async function createInvoice(formData: FormData) {
   redirect('/dashboard/invoices');
 }
 
+/**
+ * Update the invoice record
+ * @param id customerId
+ * @param formData FYI
+ */
 export async function updateInvoice(id: string, formData: FormData) {
   // extract the data from form and validate
   const { customerId, amount, status } = CreateInvoice.parse({
@@ -61,4 +66,9 @@ export async function updateInvoice(id: string, formData: FormData) {
   // revalidate and redirect
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
+}
+
+export async function deleteInvoice(id: string) {
+  await sql`DELETE FROM invoices WHERE id=${id}`;
+  revalidatePath('/dashboard.invoices');
 }
